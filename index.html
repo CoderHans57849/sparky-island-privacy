@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sparky Island — Privacy Policy / Политика конфиденциальности</title>
+<meta name="description" content="Privacy policy for the Sparky Island Android app — data collection, ads, Supabase, and user rights.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5c.6 3 1.9 4.9 4.7 6-2.8 1.1-4.1 3-4.7 6-.6-3-1.9-4.9-4.7-6 2.8-1.1 4.1-3 4.7-6z' fill='%23ec6a45'/%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #f2f7f6;
+  --surface: #ffffff;
+  --surface-raised: #fbfdfc;
+  --ink: #102a2c;
+  --ink-soft: #4c6a6e;
+  --ink-faint: #7d9599;
+  --accent: #ec6a45;
+  --accent-ink: #7a2a12;
+  --teal: #167f76;
+  --teal-soft: #d9ece9;
+  --border: #dbe6e3;
+  --border-soft: #e9f0ee;
+  --shadow: 0 1px 2px rgba(16, 42, 44, 0.04), 0 8px 24px rgba(16, 42, 44, 0.05);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a1516;
+    --surface: #101d1f;
+    --surface-raised: #142225;
+    --ink: #e8f2f0;
+    --ink-soft: #9db4b2;
+    --ink-faint: #6c8482;
+    --accent: #ff9169;
+    --accent-ink: #ffd9c9;
+    --teal: #4bc3b6;
+    --teal-soft: #123330;
+    --border: #1e2e30;
+    --border-soft: #17272a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.28);
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: "Petrona", Georgia, serif; text-wrap: balance; color: var(--ink); }
+
+a { color: var(--teal); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+a:hover { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+.mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+/* ---------------- top bar ---------------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: linear-gradient(155deg, var(--teal), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow);
+}
+.brand-mark svg { width: 20px; height: 20px; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-family: "Petrona", serif; font-weight: 600; font-size: 1.05rem; }
+.brand-sub { font-size: 0.72rem; color: var(--ink-soft); letter-spacing: 0.02em; }
+
+.topbar-spacer { flex: 1; }
+
+.meta-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.72rem; color: var(--ink-soft);
+  padding: 5px 10px; border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  white-space: nowrap;
+}
+.meta-chip .mono { color: var(--ink); }
+
+.lang-toggle {
+  display: inline-flex; border: 1px solid var(--border); border-radius: 999px;
+  padding: 3px; background: var(--surface); flex-shrink: 0;
+}
+.lang-toggle button {
+  border: none; background: transparent; cursor: pointer;
+  font-family: "JetBrains Mono", monospace; font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 6px 12px; border-radius: 999px; color: var(--ink-soft);
+  transition: background 140ms ease, color 140ms ease;
+}
+.lang-toggle button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+@media (prefers-color-scheme: dark) {
+  .lang-toggle button[aria-pressed="true"] { background: var(--teal); color: #04211e; }
+}
+
+@media (max-width: 640px) {
+  .topbar-inner { flex-wrap: wrap; gap: 10px; }
+  .meta-chip.hide-mobile { display: none; }
+}
+
+/* ---------------- page shell ---------------- */
+.shell {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 40px 24px 96px;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .shell { grid-template-columns: 1fr; }
+}
+
+.intro { grid-column: 1 / -1; max-width: 680px; margin-bottom: 8px; }
+.intro h1 { font-size: clamp(1.7rem, 3vw, 2.15rem); font-weight: 600; margin: 0 0 10px; }
+.intro p { color: var(--ink-soft); margin: 0; max-width: 60ch; }
+
+/* ---------------- TOC rail ---------------- */
+.toc { position: sticky; top: 78px; font-size: 0.84rem; }
+.toc-label {
+  font-family: "JetBrains Mono", monospace; font-size: 0.68rem; letter-spacing: 0.08em;
+  color: var(--ink-faint); text-transform: uppercase; margin: 0 0 10px;
+}
+.toc ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--border); }
+.toc li { margin: 0; }
+.toc a {
+  display: block; padding: 6px 0 6px 14px; color: var(--ink-soft); text-decoration: none;
+  border-left: 2px solid transparent; margin-left: -1px;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+.toc a:hover { color: var(--ink); border-left-color: var(--teal-soft); }
+.toc a.active { color: var(--teal); border-left-color: var(--teal); font-weight: 600; }
+@media (max-width: 860px) {
+  .toc { position: static; margin-bottom: 8px; }
+  .toc ol { display: flex; flex-wrap: wrap; gap: 2px 4px; border: none; }
+  .toc a { padding: 5px 9px; border: 1px solid var(--border); border-radius: 999px; font-size: 0.76rem; }
+  .toc a.active { background: var(--teal-soft); }
+}
+
+/* ---------------- document ---------------- */
+.doc { max-width: 680px; }
+.doc section { padding-top: 20px; margin-top: 20px; border-top: 1px solid var(--border-soft); scroll-margin-top: 74px; }
+.doc section:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+
+.doc h2 { display: flex; align-items: baseline; gap: 12px; font-size: 1.35rem; font-weight: 600; margin: 0 0 14px; }
+.secnum { font-family: "JetBrains Mono", monospace; font-size: 0.85rem; font-weight: 500; color: var(--teal); flex-shrink: 0; }
+.doc h3 { display: flex; align-items: baseline; gap: 10px; font-size: 1.05rem; font-weight: 600; margin: 24px 0 10px; }
+.subnum { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; font-weight: 500; color: var(--ink-faint); flex-shrink: 0; }
+.doc p { margin: 0 0 14px; }
+.doc ul { margin: 0 0 14px; padding-left: 1.2em; }
+.doc li { margin-bottom: 6px; }
+.doc li::marker { color: var(--teal); }
+.doc strong { color: var(--ink); font-weight: 600; }
+.doc em { color: var(--ink-soft); }
+
+.callout { background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 0 0 14px; }
+.callout p:last-child { margin-bottom: 0; }
+
+.table-wrap { overflow-x: auto; margin: 0 0 14px; border: 1px solid var(--border); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 10px 14px; vertical-align: top; }
+thead th {
+  font-family: "JetBrains Mono", monospace; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ink-faint); background: var(--surface-raised); border-bottom: 1px solid var(--border);
+}
+tbody tr + tr td { border-top: 1px solid var(--border-soft); }
+tbody td:first-child { font-weight: 600; white-space: nowrap; }
+
+.contact-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  background: var(--surface-raised); border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px 20px; margin-top: 8px;
+}
+.contact-card .label { font-size: 0.72rem; color: var(--ink-faint); font-family: "JetBrains Mono", monospace; letter-spacing: 0.05em; margin-bottom: 4px; }
+.contact-card .email { font-size: 1.05rem; font-weight: 600; }
+.contact-card a.button { text-decoration: none; background: var(--ink); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 0.86rem; font-weight: 600; flex-shrink: 0; }
+@media (prefers-color-scheme: dark) {
+  .contact-card a.button { background: var(--teal); color: #04211e; }
+}
+
+footer {
+  max-width: 1040px; margin: 0 auto; padding: 28px 24px 48px;
+  border-top: 1px solid var(--border); color: var(--ink-faint); font-size: 0.8rem;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.5c.6 3 1.9 4.9 4.7 6-2.8 1.1-4.1 3-4.7 6-.6-3-1.9-4.9-4.7-6 2.8-1.1 4.1-3 4.7-6z" fill="#fff"/>
+          <circle cx="19" cy="18" r="1.6" fill="#fff" opacity="0.85"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name" data-t="brandName">Остров Спарки</span>
+        <span class="brand-sub" data-t="brandSub">Privacy Policy</span>
+      </span>
+    </div>
+    <div class="topbar-spacer"></div>
+    <span class="meta-chip hide-mobile"><span data-t="updatedLabel">Обновлено</span> <span class="mono">6 Sep 2026</span></span>
+    <span class="meta-chip hide-mobile">BaitGS</span>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang-btn="ru" aria-pressed="true">RU</button>
+      <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</div>
+
+<div class="shell">
+  <div class="intro">
+    <h1 data-t="h1">Политика конфиденциальности</h1>
+    <p data-t="introP">«Остров Спарки» для Android — что мы собираем, зачем, и как этим управлять.</p>
+  </div>
+
+  <nav class="toc" aria-label="Sections">
+    <p class="toc-label" data-t="tocLabel">Разделы</p>
+    <ol id="toc-list"></ol>
+  </nav>
+
+  <!-- ============================= RU ============================= -->
+  <article class="doc" data-lang="ru">
+
+    <section id="s1">
+      <h2><span class="secnum">01</span> Общие положения</h2>
+      <p>Настоящая Политика конфиденциальности описывает, какие данные собирает и как обрабатывает мобильное приложение <strong>«Остров Спарки» (Sparky Island)</strong> (далее — «Приложение») для платформы Android.</p>
+      <p>Приложение рассчитано на <strong>смешанную аудиторию</strong> — им могут пользоваться как взрослые, так и дети. Мы не запрашиваем возраст при первом запуске и не собираем данные, прямо идентифицирующие личность игрока (имя, телефон, адрес и т.п.) — Приложению для работы это не нужно.</p>
+      <p>Используя Приложение, вы соглашаетесь с условиями, описанными ниже. Если вы не согласны — пожалуйста, не используйте Приложение.</p>
+    </section>
+
+    <section id="s2">
+      <h2><span class="secnum">02</span> Какие данные мы собираем</h2>
+
+      <h3><span class="subnum">2.1</span> Данные, которые остаются только на вашем устройстве</h3>
+      <p>Прогресс игры (уровень существ, количество ресурсов, настройки звука/языка и т.п.) хранится <strong>локально на устройстве</strong> в виде файла сохранения и никуда не передаётся нами напрямую — ни на наши серверы, ни в облако какой-либо третьей стороны. Приложение не использует облачную синхронизацию прогресса между устройствами. Удаление Приложения или очистка его данных в настройках Android полностью удаляет эту информацию.</p>
+
+      <h3><span class="subnum">2.1а</span> Локальные уведомления (напоминания)</h3>
+      <p>Приложение может показывать локальные уведомления Android (напоминание про ежедневную награду, «бейдж» неполученной награды на иконке, напоминания вернуться в игру через 3 и 7 дней бездействия). Все они <strong>планируются и показываются полностью на вашем устройстве</strong> — ни данные о вас, ни сам факт показа уведомления никуда не передаются, сервер для этого не используется. Начиная с Android 13 приложение один раз запрашивает системное разрешение «Показывать уведомления» — без него уведомления просто не будут показываться, остальной функционал игры не затрагивается.</p>
+
+      <h3><span class="subnum">2.2</span> Реклама (Yandex Mobile Ads)</h3>
+      <p>Приложение показывает добровольную (rewarded — за неё игрок получает внутриигровую награду и сам решает, смотреть её или нет) рекламу через <strong>Yandex Mobile Ads SDK</strong>. Для показа рекламы Yandex Mobile Ads может собирать:</p>
+      <ul>
+        <li>рекламный идентификатор устройства;</li>
+        <li>общие технические данные (модель устройства, версия ОС, приблизительное местоположение по IP, язык устройства);</li>
+        <li>данные о взаимодействии с рекламой (показы, клики) — для оценки эффективности и защиты от накрутки.</li>
+      </ul>
+      <p>Мы <strong>не выбираем и не видим</strong>, какая конкретно реклама показывается — рекламная сеть Yandex самостоятельно подбирает объявления. В Приложении нет ни одного показа рекламы без явного действия игрока (нажатия на конкретную кнопку) — принудительной или прерывающей игру рекламы нет.</p>
+      <p>Подробнее о том, как Yandex обрабатывает данные для рекламы: <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">yandex.ru/legal/confidential</a></p>
+      <div class="callout">
+        <p><strong>AppMetrica (аналитика Yandex).</strong> Yandex Mobile Ads SDK технически требует и автоматически подключает AppMetrica — собственный сервис аналитики Yandex — как обязательный компонент. AppMetrica работает в фоне для внутренней диагностики показов рекламы и определения источника установки Приложения (через официальный Google Play Install Referrer API и аналогичные механизмы других магазинов приложений). Приложение не настраивает и не читает эти данные напрямую — это внутренняя часть рекламного SDK. Действует та же политика Yandex, что и выше.</p>
+      </div>
+
+      <h3><span class="subnum">2.3</span> Покупки и облачные функции — не активны</h3>
+      <p>В текущей версии Приложения <strong>нет встроенных покупок за реальные деньги</strong> и <strong>нет облачного сохранения игрового прогресса</strong> — прогресс хранится только локально (см. 2.1).</p>
+
+      <h3><span class="subnum">2.4</span> Онлайн-таблица лидеров и общий пул подарков (Supabase)</h3>
+      <p>Приложение показывает <strong>онлайн-таблицу лидеров</strong>. При отправке результата Приложение передаёт стороннему сервису <strong>Supabase</strong> (проект «Leaderboard-Game»):</p>
+      <ul>
+        <li>имя игрока, указанное для отображения в таблице лидеров;</li>
+        <li>числовой результат (очки).</li>
+      </ul>
+      <p>Приложение также показывает <strong>общий пул подарков</strong> — раз в день можно подарить фиксированное количество кристаллов в общий пул или забрать свою долю. Для этого передаются то же имя игрока и фиксированная сумма подарка с датой — только чтобы посчитать долю за день; участнику не показывается, кто именно и сколько кому подарил.</p>
+      <p>Мы <strong>не передаём</strong> в Supabase рекламный идентификатор, техническую информацию об устройстве или геолокацию. Таблица лидеров общедоступна для чтения. Записи общего пула подарков, в отличие от таблицы лидеров, не читаются напрямую другими игроками.</p>
+      <p>Отправка результата и участие в пуле подарков происходят автоматически как часть игрового процесса.</p>
+      <div class="callout">
+        <p><strong>Анонимный вход (Supabase Anonymous Auth).</strong> Чтобы никто не мог отправлять результаты или забирать подарки от чужого имени, Приложение автоматически заводит для вашего устройства анонимную учётную запись через Supabase Auth — без email, телефона, пароля или иной идентифицирующей информации. Это создаёт случайный уникальный идентификатор устройства, используемый только как ключ авторизации ваших собственных записей — отображаемое имя в лидерборде с ним напрямую не связано для сторонних наблюдателей. Удаление Приложения создаёт при следующем запуске новую анонимную личность.</p>
+      </div>
+      <p>Политика конфиденциальности Supabase: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></p>
+
+      <h3><span class="subnum">2.5</span> Данные, которые мы НЕ собираем</h3>
+      <p>Мы не запрашиваем и не храним: имя, email, номер телефона, точную геолокацию, контакты, фотографии, историю браузера.</p>
+    </section>
+
+    <section id="s3">
+      <h2><span class="secnum">03</span> Как используются данные</h2>
+      <p>Собираемые данные используются исключительно для того, чтобы:</p>
+      <ul>
+        <li>показывать добровольную (rewarded) рекламу и получать за это доход, финансирующий разработку;</li>
+        <li>вести онлайн-таблицу лидеров и общий пул подарков;</li>
+        <li>находить и исправлять технические ошибки.</li>
+      </ul>
+      <p>Мы не продаём данные третьим лицам и не используем их для целей, не описанных в этом документе.</p>
+    </section>
+
+    <section id="s4">
+      <h2><span class="secnum">04</span> Сторонние сервисы</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Сервис</th><th>Назначение</th><th>Политика</th></tr></thead>
+          <tbody>
+            <tr><td>Yandex Mobile Ads</td><td>показ добровольной (rewarded) рекламы</td><td><a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">yandex.ru/legal/confidential</a></td></tr>
+            <tr><td>AppMetrica (Yandex)</td><td>обязательный компонент Yandex Mobile Ads — диагностика показов, источник установки</td><td><a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">yandex.ru/legal/confidential</a></td></tr>
+            <tr><td>Supabase</td><td>онлайн-таблица лидеров и общий пул подарков</td><td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="s5">
+      <h2><span class="secnum">05</span> Права пользователя</h2>
+      <p>Вы можете в любой момент:</p>
+      <ul>
+        <li><strong>удалить локальные данные</strong> — очистив данные Приложения или удалив его через настройки Android;</li>
+        <li><strong>сбросить рекламный идентификатор</strong> или <strong>отключить персонализацию рекламы</strong> — в настройках устройства;</li>
+        <li><strong>запросить информацию о своих данных</strong> и их удаление — написав на контактный email;</li>
+        <li><strong>отозвать согласие</strong>, прекратив использование Приложения.</li>
+      </ul>
+      <p>Жители Евросоюза дополнительно обладают правами по <strong>GDPR</strong> (доступ, вынос данных, ограничение обработки, возражение, право на забвение).</p>
+    </section>
+
+    <section id="s6">
+      <h2><span class="secnum">06</span> Хранение и защита данных</h2>
+      <p>Локальные данные хранятся на устройстве до удаления Приложения. Данные сторонних сервисов хранятся по их собственным политикам — мы не имеем доступа к их инфраструктуре. Записи в таблице лидеров и общем пуле подарков хранятся в Supabase бессрочно, пока не будут удалены по запросу на контактный email.</p>
+      <p>Мы принимаем разумные меры для защиты данных, к которым имеем доступ, но не можем гарантировать абсолютную защиту от любых угроз.</p>
+    </section>
+
+    <section id="s7">
+      <h2><span class="secnum">07</span> Возрастные ограничения</h2>
+      <p>Приложение не предназначено <em>исключительно</em> для детей младше 13 лет и не запрашивает подтверждение возраста напрямую. Если вам или вашему ребёнку меньше 13, пользуйтесь Приложением только под присмотром родителя/опекуна.</p>
+    </section>
+
+    <section id="s8">
+      <h2><span class="secnum">08</span> Изменения в этой политике</h2>
+      <p>Мы можем обновлять эту политику — например, при подключении новых сервисов. Дата последнего обновления указана в шапке страницы.</p>
+    </section>
+
+    <section id="s9">
+      <h2><span class="secnum">09</span> Контакты</h2>
+      <div class="contact-card">
+        <div>
+          <div class="label">По вопросам данных и конфиденциальности</div>
+          <div class="email">vanyabaitov@gmail.com</div>
+        </div>
+        <a class="button" href="mailto:vanyabaitov@gmail.com">Написать</a>
+      </div>
+    </section>
+
+  </article>
+
+  <!-- ============================= EN ============================= -->
+  <article class="doc" data-lang="en" hidden>
+
+    <section id="s1e">
+      <h2><span class="secnum">01</span> Overview</h2>
+      <p>This Privacy Policy describes what data the mobile application <strong>Sparky Island</strong> (the "App") for Android collects and how it is processed.</p>
+      <p>The App is aimed at a <strong>mixed audience</strong> — it may be used by both adults and children. We do not ask for your age on first launch and do not collect data that directly identifies you as a person (name, phone number, address, etc.) — the App does not need any of that to function.</p>
+      <p>By using the App, you agree to the terms described below. If you do not agree, please do not use the App.</p>
+    </section>
+
+    <section id="s2e">
+      <h2><span class="secnum">02</span> What data we collect</h2>
+
+      <h3><span class="subnum">2.1</span> Data that stays on your device only</h3>
+      <p>Game progress (creature levels, resource counts, sound/language settings, etc.) is stored <strong>locally on your device</strong> as a save file and is not transmitted by us anywhere. The App does not use cloud save or cross-device sync. Uninstalling the App or clearing its data permanently removes this information.</p>
+
+      <h3><span class="subnum">2.1a</span> Local notifications (reminders)</h3>
+      <p>The App may show local Android notifications (a daily-reward reminder, an unclaimed-reward badge on the app icon, and win-back reminders after 3 and 7 days of inactivity). All of these are <strong>scheduled and shown entirely on your device</strong> — no data is sent anywhere; no server is involved. Starting with Android 13, the App requests the system "Show notifications" permission once.</p>
+
+      <h3><span class="subnum">2.2</span> Advertising (Yandex Mobile Ads)</h3>
+      <p>The App shows voluntary (rewarded) ads through the <strong>Yandex Mobile Ads SDK</strong>. To serve ads, Yandex Mobile Ads may collect:</p>
+      <ul>
+        <li>an advertising identifier for your device;</li>
+        <li>general technical data (device model, OS version, approximate IP-based location, device language);</li>
+        <li>ad interaction data (impressions, clicks) — for measuring effectiveness and preventing fraud.</li>
+      </ul>
+      <p>We <strong>do not choose or see</strong> which specific ad is shown. There is no ad in the App that plays without an explicit action from the player — there is no forced or interrupting advertising.</p>
+      <p>More on how Yandex handles data for advertising: <a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener">yandex.com/legal/confidential</a></p>
+      <div class="callout">
+        <p><strong>AppMetrica (Yandex analytics).</strong> The Yandex Mobile Ads SDK technically requires and automatically bundles AppMetrica — Yandex's own analytics service — as a mandatory component. AppMetrica runs in the background for internal ad-delivery diagnostics and to determine the App's install source (via the official Google Play Install Referrer API and similar mechanisms). The App does not configure or read this data directly. The same Yandex privacy policy linked above applies.</p>
+      </div>
+
+      <h3><span class="subnum">2.3</span> Purchases and cloud save — not active</h3>
+      <p>The current version of the App has <strong>no in-app purchases for real money</strong> and <strong>no cloud save of game progress</strong> — progress is stored locally only (see 2.1).</p>
+
+      <h3><span class="subnum">2.4</span> Online leaderboard and shared gift pool (Supabase)</h3>
+      <p>The App shows an <strong>online leaderboard</strong>. When you submit your score, the App sends the following to the third-party service <strong>Supabase</strong> (project "Leaderboard-Game"):</p>
+      <ul>
+        <li>the player name you entered, to be shown on the leaderboard;</li>
+        <li>your numeric score.</li>
+      </ul>
+      <p>The App also shows a <strong>shared gift pool</strong> — once a day you can give a fixed amount of crystals to a shared pool, or claim your share. The same player name plus a fixed gift amount and date are sent, only to compute the day's share; other participants are never shown who gave how much to whom.</p>
+      <p>We <strong>do not send</strong> Supabase any advertising identifier, technical device data, or location. The leaderboard is publicly readable. Gift pool entries, unlike the leaderboard, are not directly readable by other players.</p>
+      <p>Submitting your score and participating in the gift pool happen automatically as part of gameplay.</p>
+      <div class="callout">
+        <p><strong>Anonymous sign-in (Supabase Anonymous Auth).</strong> So that no one can submit scores or claim gifts under another player's identity, the App automatically creates an anonymous account for your device through Supabase Auth — no email, phone number, password, or other identifying information involved. This creates a random unique device identifier used only as your authorization key; the leaderboard name is not tied to it for other observers. Deleting the App creates a new anonymous identity on next launch.</p>
+      </div>
+      <p>Supabase's Privacy Policy: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></p>
+
+      <h3><span class="subnum">2.5</span> Data we do NOT collect</h3>
+      <p>We do not request or store: your name, email address, phone number, precise location, contacts, photos, or browsing history.</p>
+    </section>
+
+    <section id="s3e">
+      <h2><span class="secnum">03</span> How the data is used</h2>
+      <p>Collected data is used solely to:</p>
+      <ul>
+        <li>serve voluntary (rewarded) ads and generate revenue that funds development;</li>
+        <li>maintain the online leaderboard and shared gift pool;</li>
+        <li>find and fix technical issues.</li>
+      </ul>
+      <p>We do not sell data to third parties and do not use it for any purpose not described in this document.</p>
+    </section>
+
+    <section id="s4e">
+      <h2><span class="secnum">04</span> Third-party services</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Service</th><th>Purpose</th><th>Policy</th></tr></thead>
+          <tbody>
+            <tr><td>Yandex Mobile Ads</td><td>serving voluntary (rewarded) ads</td><td><a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener">yandex.com/legal/confidential</a></td></tr>
+            <tr><td>AppMetrica (Yandex)</td><td>mandatory component of Yandex Mobile Ads — ad-delivery diagnostics, install source detection</td><td><a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener">yandex.com/legal/confidential</a></td></tr>
+            <tr><td>Supabase</td><td>online leaderboard and shared gift pool</td><td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="s5e">
+      <h2><span class="secnum">05</span> Your rights</h2>
+      <p>At any time, you can:</p>
+      <ul>
+        <li><strong>delete local data</strong> — by clearing the App's data or uninstalling it;</li>
+        <li><strong>reset your advertising identifier</strong> or <strong>turn off ad personalization</strong> — in your device settings;</li>
+        <li><strong>request information about your data</strong> and its deletion — by emailing the contact address;</li>
+        <li><strong>withdraw consent</strong> by discontinuing use of the App.</li>
+      </ul>
+      <p>EU residents additionally have rights under the <strong>GDPR</strong> (access, data portability, restriction of processing, objection, right to erasure).</p>
+    </section>
+
+    <section id="s6e">
+      <h2><span class="secnum">06</span> Data storage and security</h2>
+      <p>Local data is stored on your device until the App is uninstalled. Third-party data is stored under those services' own policies — we do not have access to their infrastructure. Leaderboard and gift pool entries are stored in Supabase indefinitely until deleted on request by email.</p>
+      <p>We take reasonable measures to protect the data we do have access to, but cannot guarantee absolute protection against every possible threat.</p>
+    </section>
+
+    <section id="s7e">
+      <h2><span class="secnum">07</span> Age restrictions</h2>
+      <p>The App is not designed <em>exclusively</em> for children under 13 and does not directly ask for age confirmation. If you or your child are under 13, please use the App only under a parent's or guardian's supervision.</p>
+    </section>
+
+    <section id="s8e">
+      <h2><span class="secnum">08</span> Changes to this policy</h2>
+      <p>We may update this policy — for example, when new services are integrated. The date of the last update is shown at the top of this page.</p>
+    </section>
+
+    <section id="s9e">
+      <h2><span class="secnum">09</span> Contact</h2>
+      <div class="contact-card">
+        <div>
+          <div class="label">For data and privacy questions</div>
+          <div class="email">vanyabaitov@gmail.com</div>
+        </div>
+        <a class="button" href="mailto:vanyabaitov@gmail.com">Email us</a>
+      </div>
+    </section>
+
+  </article>
+</div>
+
+<footer>
+  <span>&copy; 2026 BaitGS — Sparky Island</span>
+  <span class="mono">vanyabaitov@gmail.com</span>
+</footer>
+
+<script>
+(function () {
+  var I18N = {
+    ru: {
+      brandName: "Остров Спарки", brandSub: "Политика конфиденциальности",
+      updatedLabel: "Обновлено",
+      h1: "Политика конфиденциальности",
+      introP: "«Остров Спарки» для Android — что мы собираем, зачем, и как этим управлять.",
+      tocLabel: "Разделы",
+      toc: ["Общие положения", "Какие данные мы собираем", "Как используются данные", "Сторонние сервисы", "Права пользователя", "Хранение и защита данных", "Возрастные ограничения", "Изменения в политике", "Контакты"]
+    },
+    en: {
+      brandName: "Sparky Island", brandSub: "Privacy Policy",
+      updatedLabel: "Updated",
+      h1: "Privacy Policy",
+      introP: "Sparky Island for Android — what we collect, why, and how to control it.",
+      tocLabel: "Sections",
+      toc: ["Overview", "What data we collect", "How the data is used", "Third-party services", "Your rights", "Data storage and security", "Age restrictions", "Changes to this policy", "Contact"]
+    }
+  };
+
+  var ids = { ru: ["s1","s2","s3","s4","s5","s6","s7","s8","s9"], en: ["s1e","s2e","s3e","s4e","s5e","s6e","s7e","s8e","s9e"] };
+  var tocList = document.getElementById("toc-list");
+  var docs = document.querySelectorAll(".doc");
+  var btns = document.querySelectorAll("[data-lang-btn]");
+
+  function buildToc(lang) {
+    tocList.innerHTML = "";
+    I18N[lang].toc.forEach(function (label, i) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#" + ids[lang][i];
+      a.textContent = String(i + 1).padStart(2, "0") + "  " + label;
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+    setupObserver(lang);
+  }
+
+  var observer;
+  function setupObserver(lang) {
+    if (observer) observer.disconnect();
+    var links = tocList.querySelectorAll("a");
+    observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var id = entry.target.id;
+        var link = tocList.querySelector('a[href="#' + id + '"]');
+        if (!link) return;
+        if (entry.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    ids[lang].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  }
+
+  function setLang(lang) {
+    docs.forEach(function (d) { d.hidden = d.getAttribute("data-lang") !== lang; });
+    btns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-lang-btn") === lang ? "true" : "false"); });
+    document.documentElement.setAttribute("lang", lang);
+    document.querySelectorAll("[data-t]").forEach(function (el) {
+      var key = el.getAttribute("data-t");
+      if (I18N[lang][key] && typeof I18N[lang][key] === "string") el.textContent = I18N[lang][key];
+    });
+    buildToc(lang);
+    try { localStorage.setItem("sparky-privacy-lang", lang); } catch (e) {}
+  }
+
+  btns.forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang-btn")); });
+  });
+
+  var initial = "ru";
+  try {
+    var saved = localStorage.getItem("sparky-privacy-lang");
+    if (saved === "ru" || saved === "en") initial = saved;
+    else if ((navigator.language || "").toLowerCase().indexOf("ru") !== 0) initial = "en";
+  } catch (e) {}
+  setLang(initial);
+})();
+</script>
+</body>
+</html>
