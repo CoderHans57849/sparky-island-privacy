@@ -240,7 +240,7 @@ img { max-width: 100%; }
       </span>
     </div>
     <div class="topbar-spacer"></div>
-    <span class="meta-chip hide-mobile"><span data-t="updatedLabel">Обновлено</span> <span class="mono">6 Sep 2026</span></span>
+    <span class="meta-chip hide-mobile"><span data-t="updatedLabel">Обновлено</span> <span class="mono">10 Sep 2026</span></span>
     <span class="meta-chip hide-mobile" data-t="devLabel">Независимый разработчик</span>
     <div class="lang-toggle" role="group" aria-label="Language">
       <button type="button" data-lang-btn="ru" aria-pressed="true">RU</button>
@@ -267,14 +267,14 @@ img { max-width: 100%; }
       <h2><span class="secnum">01</span> Общие положения</h2>
       <p>Настоящая Политика конфиденциальности описывает, какие данные собирает и как обрабатывает мобильное приложение <strong>«Остров Спарки» (Sparky Island)</strong> (далее — «Приложение») для платформы Android.</p>
       <p>Приложение рассчитано на <strong>смешанную аудиторию</strong> — им могут пользоваться как взрослые, так и дети. Мы не запрашиваем возраст при первом запуске и не собираем данные, прямо идентифицирующие личность игрока (имя, телефон, адрес и т.п.) — Приложению для работы это не нужно.</p>
-      <p>Используя Приложение, вы соглашаетесь с условиями, описанными ниже. Если вы не согласны — пожалуйста, не используйте Приложение.</p>
+      <p>До первого запроса рекламы игра показывает эту политику и запрашивает согласие на обработку данных рекламным SDK. Если выбрать отказ, приложение закрывается и рекламу не загружает. Игра не запрашивает настоящее имя, email, номер телефона, адрес, контакты, фотографии, микрофон, камеру или точную геолокацию.</p>
     </section>
 
     <section id="s2">
       <h2><span class="secnum">02</span> Какие данные мы собираем</h2>
 
       <h3><span class="subnum">2.1</span> Данные, которые остаются только на вашем устройстве</h3>
-      <p>Прогресс игры (уровень существ, количество ресурсов, настройки звука/языка и т.п.) хранится <strong>локально на устройстве</strong> в виде файла сохранения и никуда не передаётся нами напрямую — ни на наши серверы, ни в облако какой-либо третьей стороны. Приложение не использует облачную синхронизацию прогресса между устройствами. Удаление Приложения или очистка его данных в настройках Android полностью удаляет эту информацию.</p>
+      <p>Прогресс игры, настройки, выбранный язык, отметка о согласии и токен анонимной сессии Supabase хранятся <strong>локально на устройстве</strong>. Это не облачное сохранение прогресса. Очистка данных приложения или удаление приложения в настройках Android удаляет эту информацию.</p>
 
       <h3><span class="subnum">2.1а</span> Локальные уведомления (напоминания)</h3>
       <p>Приложение может показывать локальные уведомления Android (напоминание про ежедневную награду, «бейдж» неполученной награды на иконке, напоминания вернуться в игру через 3 и 7 дней бездействия). Все они <strong>планируются и показываются полностью на вашем устройстве</strong> — ни данные о вас, ни сам факт показа уведомления никуда не передаются, сервер для этого не используется. Начиная с Android 13 приложение один раз запрашивает системное разрешение «Показывать уведомления» — без него уведомления просто не будут показываться, остальной функционал игры не затрагивается.</p>
@@ -283,34 +283,34 @@ img { max-width: 100%; }
       <p>Приложение показывает добровольную (rewarded — за неё игрок получает внутриигровую награду и сам решает, смотреть её или нет) рекламу через <strong>Yandex Mobile Ads SDK</strong>. Для показа рекламы Yandex Mobile Ads может собирать:</p>
       <ul>
         <li>рекламный идентификатор устройства;</li>
-        <li>общие технические данные (модель устройства, версия ОС, приблизительное местоположение по IP, язык устройства);</li>
+        <li>общие технические данные (модель устройства, версия ОС, язык устройства);</li>
         <li>данные о взаимодействии с рекламой (показы, клики) — для оценки эффективности и защиты от накрутки.</li>
       </ul>
-      <p>Мы <strong>не выбираем и не видим</strong>, какая конкретно реклама показывается — рекламная сеть Yandex самостоятельно подбирает объявления. В Приложении нет ни одного показа рекламы без явного действия игрока (нажатия на конкретную кнопку) — принудительной или прерывающей игру рекламы нет.</p>
+      <p>Мы <strong>не выбираем и не видим</strong>, какая конкретно реклама показывается. В Приложении нет рекламы без явного действия игрока: принудительной или прерывающей игру рекламы нет. Включён ограниченный возрастной режим SDK, а передача геолокации из приложения отключена.</p>
       <p>Подробнее о том, как Yandex обрабатывает данные для рекламы: <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">yandex.ru/legal/confidential</a></p>
       <div class="callout">
-        <p><strong>AppMetrica (аналитика Yandex).</strong> Yandex Mobile Ads SDK технически требует и автоматически подключает AppMetrica — собственный сервис аналитики Yandex — как обязательный компонент. AppMetrica работает в фоне для внутренней диагностики показов рекламы и определения источника установки Приложения (через официальный Google Play Install Referrer API и аналогичные механизмы других магазинов приложений). Приложение не настраивает и не читает эти данные напрямую — это внутренняя часть рекламного SDK. Действует та же политика Yandex, что и выше.</p>
+        <p><strong>AppMetrica (аналитика Yandex).</strong> Пакет Yandex Mobile Ads включает AppMetrica. Если в кабинете Yandex включена синхронизация Ads SDK с AppMetrica, Yandex может получать автоматические события установки и сессии, техническую диагностику и события взаимодействия с рекламой. Приложение не отправляет в AppMetrica собственные профили пользователей или пользовательские события.</p>
       </div>
 
       <h3><span class="subnum">2.3</span> Покупки и облачные функции — не активны</h3>
-      <p>В текущей версии Приложения <strong>нет встроенных покупок за реальные деньги</strong> и <strong>нет облачного сохранения игрового прогресса</strong> — прогресс хранится только локально (см. 2.1).</p>
+      <p>Игровой прогресс не синхронизируется между устройствами. При наличии покупок обработку платежа выполняет Google Play; приложение не получает и не хранит данные банковской карты.</p>
 
       <h3><span class="subnum">2.4</span> Онлайн-таблица лидеров и общий пул подарков (Supabase)</h3>
       <p>Приложение показывает <strong>онлайн-таблицу лидеров</strong>. При отправке результата Приложение передаёт стороннему сервису <strong>Supabase</strong> (проект «Leaderboard-Game»):</p>
       <ul>
-        <li>имя игрока, указанное для отображения в таблице лидеров;</li>
-        <li>числовой результат (очки).</li>
+        <li>случайно созданный игровой ник вида <span class="mono">Player123456</span> (его можно изменить во вкладке рейтинга);</li>
+        <li>счёт в искрах, суммарно полученные кристаллы и позицию в рейтинге.</li>
       </ul>
-      <p>Приложение также показывает <strong>общий пул подарков</strong> — раз в день можно подарить фиксированное количество кристаллов в общий пул или забрать свою долю. Для этого передаются то же имя игрока и фиксированная сумма подарка с датой — только чтобы посчитать долю за день; участнику не показывается, кто именно и сколько кому подарил.</p>
+      <p>Приложение также показывает <strong>общий пул подарков</strong>. Для него передаются факт и размер игрового пожертвования, дата и результат выдачи награды. Записи пула не показываются другим игрокам построчно.</p>
       <p>Мы <strong>не передаём</strong> в Supabase рекламный идентификатор, техническую информацию об устройстве или геолокацию. Таблица лидеров общедоступна для чтения. Записи общего пула подарков, в отличие от таблицы лидеров, не читаются напрямую другими игроками.</p>
       <p>Отправка результата и участие в пуле подарков происходят автоматически как часть игрового процесса.</p>
       <div class="callout">
-        <p><strong>Анонимный вход (Supabase Anonymous Auth).</strong> Чтобы никто не мог отправлять результаты или забирать подарки от чужого имени, Приложение автоматически заводит для вашего устройства анонимную учётную запись через Supabase Auth — без email, телефона, пароля или иной идентифицирующей информации. Это создаёт случайный уникальный идентификатор устройства, используемый только как ключ авторизации ваших собственных записей — отображаемое имя в лидерборде с ним напрямую не связано для сторонних наблюдателей. Удаление Приложения создаёт при следующем запуске новую анонимную личность.</p>
+        <p><strong>Анонимный вход (Supabase Anonymous Auth).</strong> Supabase создаёт анонимную учётную запись без email, телефона, пароля или настоящего имени. Случайный постоянный идентификатор <span class="mono">auth.uid()</span> нужен, чтобы нельзя было менять чужой результат или забирать чужую награду; токен сессии хранится локально.</p>
       </div>
       <p>Политика конфиденциальности Supabase: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></p>
 
       <h3><span class="subnum">2.5</span> Данные, которые мы НЕ собираем</h3>
-      <p>Мы не запрашиваем и не храним: имя, email, номер телефона, точную геолокацию, контакты, фотографии, историю браузера.</p>
+      <p>Мы не запрашиваем настоящее имя, email, номер телефона, точную геолокацию, контакты, фотографии или историю браузера.</p>
     </section>
 
     <section id="s3">
@@ -321,7 +321,7 @@ img { max-width: 100%; }
         <li>вести онлайн-таблицу лидеров и общий пул подарков;</li>
         <li>находить и исправлять технические ошибки.</li>
       </ul>
-      <p>Мы не продаём данные третьим лицам и не используем их для целей, не описанных в этом документе.</p>
+      <p>Мы не продаём персональные данные. Получатели данных — Yandex Mobile Ads/AppMetrica и Supabase в пределах, описанных в этой политике.</p>
     </section>
 
     <section id="s4">
@@ -331,7 +331,7 @@ img { max-width: 100%; }
           <thead><tr><th>Сервис</th><th>Назначение</th><th>Политика</th></tr></thead>
           <tbody>
             <tr><td>Yandex Mobile Ads</td><td>показ добровольной (rewarded) рекламы</td><td><a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">yandex.ru/legal/confidential</a></td></tr>
-            <tr><td>AppMetrica (Yandex)</td><td>обязательный компонент Yandex Mobile Ads — диагностика показов, источник установки</td><td><a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">yandex.ru/legal/confidential</a></td></tr>
+            <tr><td>AppMetrica (Yandex)</td><td>автоматические события и диагностика только при включённой синхронизации Ads SDK</td><td><a href="https://appmetrica.yandex.ru/docs/ru/new-users/data-security" target="_blank" rel="noopener">AppMetrica</a></td></tr>
             <tr><td>Supabase</td><td>онлайн-таблица лидеров и общий пул подарков</td><td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></td></tr>
           </tbody>
         </table>
@@ -345,20 +345,20 @@ img { max-width: 100%; }
         <li><strong>удалить локальные данные</strong> — очистив данные Приложения или удалив его через настройки Android;</li>
         <li><strong>сбросить рекламный идентификатор</strong> или <strong>отключить персонализацию рекламы</strong> — в настройках устройства;</li>
         <li><strong>запросить информацию о своих данных</strong> и их удаление — написав на контактный email;</li>
-        <li><strong>отозвать согласие</strong>, прекратив использование Приложения.</li>
+        <li><strong>отозвать согласие</strong> — очистив данные приложения и выбрав «Decline» при следующем запуске; реклама не загрузится, а приложение закроется.</li>
       </ul>
       <p>Жители Евросоюза дополнительно обладают правами по <strong>GDPR</strong> (доступ, вынос данных, ограничение обработки, возражение, право на забвение).</p>
     </section>
 
     <section id="s6">
       <h2><span class="secnum">06</span> Хранение и защита данных</h2>
-      <p>Локальные данные хранятся на устройстве до удаления Приложения. Данные сторонних сервисов хранятся по их собственным политикам — мы не имеем доступа к их инфраструктуре. Записи в таблице лидеров и общем пуле подарков хранятся в Supabase бессрочно, пока не будут удалены по запросу на контактный email.</p>
+      <p>Локальные данные хранятся на устройстве до удаления приложения. Записи лидерборда и пула в Supabase хранятся, пока не будут удалены по запросу пользователя или разработчиком.</p>
       <p>Мы принимаем разумные меры для защиты данных, к которым имеем доступ, но не можем гарантировать абсолютную защиту от любых угроз.</p>
     </section>
 
     <section id="s7">
       <h2><span class="secnum">07</span> Возрастные ограничения</h2>
-      <p>Приложение не предназначено <em>исключительно</em> для детей младше 13 лет и не запрашивает подтверждение возраста напрямую. Если вам или вашему ребёнку меньше 13, пользуйтесь Приложением только под присмотром родителя/опекуна.</p>
+      <p>Игра не запрашивает возраст и не предназначена для сбора личных данных детей. Для рекламного SDK всегда включён режим ограничений по возрасту, а персонализация и передача геолокации из приложения отключены. Если ребёнок указал личную информацию в нике, свяжитесь с нами для удаления записи.</p>
     </section>
 
     <section id="s8">
@@ -386,14 +386,14 @@ img { max-width: 100%; }
       <h2><span class="secnum">01</span> Overview</h2>
       <p>This Privacy Policy describes what data the mobile application <strong>Sparky Island</strong> (the "App") for Android collects and how it is processed.</p>
       <p>The App is aimed at a <strong>mixed audience</strong> — it may be used by both adults and children. We do not ask for your age on first launch and do not collect data that directly identifies you as a person (name, phone number, address, etc.) — the App does not need any of that to function.</p>
-      <p>By using the App, you agree to the terms described below. If you do not agree, please do not use the App.</p>
+      <p>Before the first ad request, the game shows this policy and asks for consent to processing by the advertising SDK. If consent is declined, the app closes and does not load advertising. The game does not request a real name, email address, phone number, postal address, contacts, photos, microphone, camera, or precise location.</p>
     </section>
 
     <section id="s2e">
       <h2><span class="secnum">02</span> What data we collect</h2>
 
       <h3><span class="subnum">2.1</span> Data that stays on your device only</h3>
-      <p>Game progress (creature levels, resource counts, sound/language settings, etc.) is stored <strong>locally on your device</strong> as a save file and is not transmitted by us anywhere. The App does not use cloud save or cross-device sync. Uninstalling the App or clearing its data permanently removes this information.</p>
+      <p>Game progress, settings, language selection, the consent record, and a Supabase anonymous-session token are stored <strong>locally on your device</strong>. This is not cloud progress sync. Clearing the app's data or uninstalling it through Android settings removes this information.</p>
 
       <h3><span class="subnum">2.1a</span> Local notifications (reminders)</h3>
       <p>The App may show local Android notifications (a daily-reward reminder, an unclaimed-reward badge on the app icon, and win-back reminders after 3 and 7 days of inactivity). All of these are <strong>scheduled and shown entirely on your device</strong> — no data is sent anywhere; no server is involved. Starting with Android 13, the App requests the system "Show notifications" permission once.</p>
@@ -402,34 +402,34 @@ img { max-width: 100%; }
       <p>The App shows voluntary (rewarded) ads through the <strong>Yandex Mobile Ads SDK</strong>. To serve ads, Yandex Mobile Ads may collect:</p>
       <ul>
         <li>an advertising identifier for your device;</li>
-        <li>general technical data (device model, OS version, approximate IP-based location, device language);</li>
+        <li>general technical data (device model, OS version, device language);</li>
         <li>ad interaction data (impressions, clicks) — for measuring effectiveness and preventing fraud.</li>
       </ul>
-      <p>We <strong>do not choose or see</strong> which specific ad is shown. There is no ad in the App that plays without an explicit action from the player — there is no forced or interrupting advertising.</p>
+      <p>We <strong>do not choose or see</strong> which specific ad is shown. There is no ad that plays without an explicit player action — there is no forced or interrupting advertising. The SDK runs in age-restricted mode and the app does not send location.</p>
       <p>More on how Yandex handles data for advertising: <a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener">yandex.com/legal/confidential</a></p>
       <div class="callout">
-        <p><strong>AppMetrica (Yandex analytics).</strong> The Yandex Mobile Ads SDK technically requires and automatically bundles AppMetrica — Yandex's own analytics service — as a mandatory component. AppMetrica runs in the background for internal ad-delivery diagnostics and to determine the App's install source (via the official Google Play Install Referrer API and similar mechanisms). The App does not configure or read this data directly. The same Yandex privacy policy linked above applies.</p>
+        <p><strong>AppMetrica (Yandex analytics).</strong> The Yandex Mobile Ads package includes AppMetrica. If Ads SDK sync with AppMetrica is enabled in the Yandex dashboard, Yandex may receive automatic install and session events, technical diagnostics, and advertising-interaction events. The developer does not send custom user profiles or custom user events to AppMetrica.</p>
       </div>
 
       <h3><span class="subnum">2.3</span> Purchases and cloud save — not active</h3>
-      <p>The current version of the App has <strong>no in-app purchases for real money</strong> and <strong>no cloud save of game progress</strong> — progress is stored locally only (see 2.1).</p>
+      <p>Game progress is not synchronized across devices. If purchases are available, Google Play processes payment; the app does not receive or store payment-card data.</p>
 
       <h3><span class="subnum">2.4</span> Online leaderboard and shared gift pool (Supabase)</h3>
       <p>The App shows an <strong>online leaderboard</strong>. When you submit your score, the App sends the following to the third-party service <strong>Supabase</strong> (project "Leaderboard-Game"):</p>
       <ul>
-        <li>the player name you entered, to be shown on the leaderboard;</li>
-        <li>your numeric score.</li>
+        <li>a randomly generated game nickname such as <span class="mono">Player123456</span> (the player may change it in the leaderboard tab);</li>
+        <li>spark score, lifetime crystals, and rank.</li>
       </ul>
-      <p>The App also shows a <strong>shared gift pool</strong> — once a day you can give a fixed amount of crystals to a shared pool, or claim your share. The same player name plus a fixed gift amount and date are sent, only to compute the day's share; other participants are never shown who gave how much to whom.</p>
+      <p>The App also shows a <strong>shared gift pool</strong>. The fact and amount of an in-game contribution, date, and reward result are sent for this feature. Individual shared-pool contributions are not displayed to other players.</p>
       <p>We <strong>do not send</strong> Supabase any advertising identifier, technical device data, or location. The leaderboard is publicly readable. Gift pool entries, unlike the leaderboard, are not directly readable by other players.</p>
       <p>Submitting your score and participating in the gift pool happen automatically as part of gameplay.</p>
       <div class="callout">
-        <p><strong>Anonymous sign-in (Supabase Anonymous Auth).</strong> So that no one can submit scores or claim gifts under another player's identity, the App automatically creates an anonymous account for your device through Supabase Auth — no email, phone number, password, or other identifying information involved. This creates a random unique device identifier used only as your authorization key; the leaderboard name is not tied to it for other observers. Deleting the App creates a new anonymous identity on next launch.</p>
+        <p><strong>Anonymous sign-in (Supabase Anonymous Auth).</strong> Supabase creates an anonymous account without an email address, phone number, password, or real name. A random persistent identifier, <span class="mono">auth.uid()</span>, prevents changes to another player's score or reward; its session token is stored locally.</p>
       </div>
       <p>Supabase's Privacy Policy: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></p>
 
       <h3><span class="subnum">2.5</span> Data we do NOT collect</h3>
-      <p>We do not request or store: your name, email address, phone number, precise location, contacts, photos, or browsing history.</p>
+      <p>We do not request a real name, email address, phone number, precise location, contacts, photos, or browsing history.</p>
     </section>
 
     <section id="s3e">
@@ -440,7 +440,7 @@ img { max-width: 100%; }
         <li>maintain the online leaderboard and shared gift pool;</li>
         <li>find and fix technical issues.</li>
       </ul>
-      <p>We do not sell data to third parties and do not use it for any purpose not described in this document.</p>
+      <p>We do not sell personal data. Recipients are Yandex Mobile Ads/AppMetrica and Supabase within the scope described in this policy.</p>
     </section>
 
     <section id="s4e">
@@ -450,7 +450,7 @@ img { max-width: 100%; }
           <thead><tr><th>Service</th><th>Purpose</th><th>Policy</th></tr></thead>
           <tbody>
             <tr><td>Yandex Mobile Ads</td><td>serving voluntary (rewarded) ads</td><td><a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener">yandex.com/legal/confidential</a></td></tr>
-            <tr><td>AppMetrica (Yandex)</td><td>mandatory component of Yandex Mobile Ads — ad-delivery diagnostics, install source detection</td><td><a href="https://yandex.com/legal/confidential/" target="_blank" rel="noopener">yandex.com/legal/confidential</a></td></tr>
+            <tr><td>AppMetrica (Yandex)</td><td>automatic events and diagnostics only when Ads SDK sync is enabled</td><td><a href="https://appmetrica.yandex.com/docs/en/data-security" target="_blank" rel="noopener">AppMetrica</a></td></tr>
             <tr><td>Supabase</td><td>online leaderboard and shared gift pool</td><td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></td></tr>
           </tbody>
         </table>
@@ -464,20 +464,20 @@ img { max-width: 100%; }
         <li><strong>delete local data</strong> — by clearing the App's data or uninstalling it;</li>
         <li><strong>reset your advertising identifier</strong> or <strong>turn off ad personalization</strong> — in your device settings;</li>
         <li><strong>request information about your data</strong> and its deletion — by emailing the contact address;</li>
-        <li><strong>withdraw consent</strong> by discontinuing use of the App.</li>
+        <li><strong>withdraw consent</strong> by clearing the app's data and choosing “Decline” at the next launch; advertising is not loaded and the app closes.</li>
       </ul>
       <p>EU residents additionally have rights under the <strong>GDPR</strong> (access, data portability, restriction of processing, objection, right to erasure).</p>
     </section>
 
     <section id="s6e">
       <h2><span class="secnum">06</span> Data storage and security</h2>
-      <p>Local data is stored on your device until the App is uninstalled. Third-party data is stored under those services' own policies — we do not have access to their infrastructure. Leaderboard and gift pool entries are stored in Supabase indefinitely until deleted on request by email.</p>
+      <p>Local data is stored on the device until the app is removed. Leaderboard and shared-pool records are kept in Supabase until the user requests deletion or the developer deletes them.</p>
       <p>We take reasonable measures to protect the data we do have access to, but cannot guarantee absolute protection against every possible threat.</p>
     </section>
 
     <section id="s7e">
       <h2><span class="secnum">07</span> Age restrictions</h2>
-      <p>The App is not designed <em>exclusively</em> for children under 13 and does not directly ask for age confirmation. If you or your child are under 13, please use the App only under a parent's or guardian's supervision.</p>
+      <p>The game does not ask for age and is not intended to collect children's personal data. The advertising SDK always runs in age-restricted mode; personalization and in-app location transmission are disabled. If you believe a child entered personal information in a nickname, contact us to remove that record.</p>
     </section>
 
     <section id="s8e">
